@@ -7,29 +7,32 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://forums.unraid.net/topic/80571-support-vscode-community-application/</Support>
+  <Support>https://hub.docker.com/r/codercom/code-server</Support>
   <Project>https://github.com/cdr/code-server</Project>
-  <Overview>code-server is VS Code running on a remote server, accessible through the browser.&#xD;
+  <Overview>code-server is VS Code running on a remote server, accessible through the browser.[br][br] [br] &#xD;
 &#xD;
-This image, by default, comes secured with SSL and authentication (auto-generated password is displayed in the logs). To allow access over HTTP and disable authentication, add the following in the Post Arguments section under the advanced tab in edit mode: "--allow http --no-auth".</Overview>
-  <Category>Productivity: Tools: Status:Stable</Category>
-  <WebUI>http://[IP]:[PORT:9999]</WebUI>
-  <TemplateURL/>
-  <Icon>https://avatars0.githubusercontent.com/in/2406?s=60&amp;amp;v=4</Icon>
+This image, by default, this is served over http, and is designed to be run behind a proxy, if you wish to enable self signed certificates and password authentication (password obtained from the logs) then click advanced and delete[br] [br] &#xD;
+&#xD;
+--allow-http --no-auth</Overview>
+  <Category>Productivity: Tools:Utilities </Category>
+  <WebUI>http://[IP]:[PORT:8443]</WebUI>
+  <TemplateURL>https://github.com/gtsatsis/unraid-ca-apps/blob/master/code-server.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/gtsatsis/unraid-ca-apps/master/icons/code-server.png</Icon>
   <ExtraParams/>
-  <PostArgs/>
+  <PostArgs>--allow-http --no-auth</PostArgs>
   <CPUset/>
-  <DateInstalled>1559239554</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Description>code-server is VS Code running on a remote server, accessible through the browser.&#xD;
+  <Description>code-server is VS Code running on a remote server, accessible through the browser.[br][br] [br] &#xD;
 &#xD;
-This image, by default, comes secured with SSL and authentication (auto-generated password is displayed in the logs). To allow access over HTTP and disable authentication, add the following in the Post Arguments section under the advanced tab in edit mode: "--allow http --no-auth".</Description>
+This image, by default, this is served over http, and is designed to be run behind a proxy, if you wish to enable self signed certificates and password authentication (password obtained from the logs) then click advanced and delete[br] [br] &#xD;
+&#xD;
+--allow-http --no-auth</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
       <Port>
-        <HostPort>9999</HostPort>
+        <HostPort></HostPort>
         <ContainerPort>8443</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -37,19 +40,26 @@ This image, by default, comes secured with SSL and authentication (auto-generate
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/code-server/</HostDir>
+      <HostDir></HostDir>
       <ContainerDir>/home/coder/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/user/appdata/code-server/project</HostDir>
+      <HostDir></HostDir>
       <ContainerDir>/home/coder/project</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Environment/>
+  <Environment>
+    <Variable>
+      <Value>true</Value>
+      <Name>DISABLE_TELEMETRY</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
   <Labels/>
-  <Config Name="Home Directory" Target="/home/coder/" Default="/mnt/user/appdata/code-server/" Mode="rw" Description="Container Path: /home/coder/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/code-server/</Config>
+  <Config Name="Appdata" Target="/home/coder/" Default="" Mode="rw" Description="Container Path: /home/coder/" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Project Directory (If different)" Target="/home/coder/project" Default="" Mode="rw" Description="Container Path: /home/coder/project" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Host Port" Target="8443" Default="" Mode="tcp" Description="Container Port: 8443" Type="Port" Display="always" Required="true" Mask="false">9999</Config>
+  <Config Name="Host Port" Target="8443" Default="" Mode="tcp" Description="Container Port: 8443" Type="Port" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Disable Telemetry" Target="DISABLE_TELEMETRY" Default="true" Mode="" Description="Set to false to enable telemetry" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
 </Container>
