@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Support>https://hub.docker.com/r/codercom/code-server</Support>
+  <Support>https://forums.unraid.net/topic/80571-support-vscode-community-application/</Support>
   <Project>https://github.com/cdr/code-server</Project>
   <Overview>code-server is VS Code running on a remote server, accessible through the browser.[br][br] [br] &#xD;
 &#xD;
