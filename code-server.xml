@@ -15,7 +15,7 @@ This image, by default, this is served over http, and is designed to be run behi
 &#xD;
 --allow-http --no-auth</Overview>
   <Category>Productivity: Tools:Utilities </Category>
-  <WebUI>http://[IP]:[PORT:8443]</WebUI>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <TemplateURL>https://github.com/gtsatsis/unraid-ca-apps/blob/master/code-server.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/gtsatsis/unraid-ca-apps/master/icons/code-server.png</Icon>
   <ExtraParams/>
@@ -33,7 +33,7 @@ This image, by default, this is served over http, and is designed to be run behi
     <Publish>
       <Port>
         <HostPort></HostPort>
-        <ContainerPort>8443</ContainerPort>
+        <ContainerPort>8080</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
@@ -60,6 +60,6 @@ This image, by default, this is served over http, and is designed to be run behi
   <Labels/>
   <Config Name="Appdata" Target="/home/coder/" Default="" Mode="rw" Description="Container Path: /home/coder/" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Project Directory (If different)" Target="/home/coder/project" Default="" Mode="rw" Description="Container Path: /home/coder/project" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Host Port" Target="8443" Default="" Mode="tcp" Description="Container Port: 8443" Type="Port" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Host Port" Target="8080" Default="" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Disable Telemetry" Target="DISABLE_TELEMETRY" Default="true" Mode="" Description="Set to false to enable telemetry" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
 </Container>
